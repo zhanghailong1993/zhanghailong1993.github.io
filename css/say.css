@@ -1,0 +1,141 @@
+.main-content {
+    width:1000px;
+    margin:0 auto;
+    padding-top:10px
+}
+.main-content h2.title-h2 {
+    font-size:16px;
+    font-weight:400;
+    color:#333;
+    padding:2px 0 2px 10px;
+    border-left:2px solid #3472ef;
+    margin:0 0 20px 2px
+}
+.main-content .crumbs-nav-wrap {
+    height:35px;
+    line-height:35px;
+    margin:10px 0
+}
+.main-content .crumbs-nav-wrap .crumbs-nav {
+    padding-left:25px;
+    color:#565b63;
+    font-size:15px;
+    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAXCAYAAADtNKTnAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RjJDRURENTM1QkVCMTFFNjk5MTJCNjUyNUUzRkYyN0MiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RjJDRURENTQ1QkVCMTFFNjk5MTJCNjUyNUUzRkYyN0MiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpGMkNFREQ1MTVCRUIxMUU2OTkxMkI2NTI1RTNGRjI3QyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpGMkNFREQ1MjVCRUIxMUU2OTkxMkI2NTI1RTNGRjI3QyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqfztaoAAAHgSURBVHjapJTLK0RRHMfv3IbIYjY2VsprYbJEYeNRnhs25g8YRhTyHFYWnnkVq5lYyYyFUlihRsrOxsKjJAtLlFmoSRjfo++pX8c1lF99uvf+Xuec3/ndnyuZTFqxk1PLkGLgBw2gALyCO3AI1sCldLaN4DSwCM5BB7gG02AB3FB3Tp80HeQWCdT7HqgD82AOPBuLeEAQDAMvaAFvciczTOADYw4JlMRp89F3Vh6nEPSDZbBNXTpXPSNB6iz6LIE+FauTqCImwKRYNcp6xMk0dVqmGOPXSepZ+Ti/S0EbGAK1ZJC6UnG0A3WDOkkuuBKrePncFLqIYbN41UW2uOp3Ybzns1LoKgybloRbZCwXhhiLuQGqQBJ0UXcs/MpUrN7JDqgGOfz+AI3sm27QA/ap0zvOYcyuLW5CrRYQqzyyHzJIO3VaAoyJ2OKcUd67x/pdPPTdUrG2ce9ZYPwPScboO2n+gOoHC4FekJ8iQR53EWLMt794AryAlRRJVukz8dMoeAIjoIlFNcVH2yh9v8TlMJRc4AiUsDsfqM8GF+ypGt6M404sGjtBJs+tJcxi+mUCcyhJueVoUKNwgLtrZW/cms7uFAVcB80chbqrw06O7l/6oYMDS787yldh/yufAgwAfXZ34w0yhRkAAAAASUVORK5CYII=) 0 5px no-repeat
+}
+.main-content .crumbs-nav-wrap .crumbs-nav a {
+    color:#565b63
+}
+.main-content .crumbs-nav-wrap .crumbs-nav a:hover {
+    color:#3472ef
+}
+.main-content .crumbs-nav-wrap .crumbs-nav span {
+    padding:0 3px
+}
+.main-content .crumbs-nav-wrap .crumbs-nav h1 {
+    font-size:15px;
+    color:#565b63;
+    font-weight:400
+}
+.main-content .main-content-box {
+    width:1000px;
+    margin:0 auto
+}
+.main-content .main-content-box ul.list li {
+    height:130px;
+    position:relative;
+    transition:all 1s
+}
+.main-content .main-content-box ul.list li .say-pic-box {
+    width:100px;
+    height:130px;
+    background:url(data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAABQAAD/4QMpaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjAtYzA2MCA2MS4xMzQ3NzcsIDIwMTAvMDIvMTItMTc6MzI6MDAgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDUzUgV2luZG93cyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDoxMkRBOUM0RDEzMEIxMUU0OURBRUFGNDkxQTdCQTgyOSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDoxMkRBOUM0RTEzMEIxMUU0OURBRUFGNDkxQTdCQTgyOSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjEyQzBDRTY1MTMwQjExRTQ5REFFQUY0OTFBN0JBODI5IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjEyQzBDRTY2MTMwQjExRTQ5REFFQUY0OTFBN0JBODI5Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+/+4ADkFkb2JlAGTAAAAAAf/bAIQAAgICAgICAgICAgMCAgIDBAMCAgMEBQQEBAQEBQYFBQUFBQUGBgcHCAcHBgkJCgoJCQwMDAwMDAwMDAwMDAwMDAEDAwMFBAUJBgYJDQsJCw0PDg4ODg8PDAwMDAwPDwwMDAwMDA8MDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwM/8AAEQgAAwAFAwERAAIRAQMRAf/EAEwAAQAAAAAAAAAAAAAAAAAAAAYBAQEAAAAAAAAAAAAAAAAAAAUGEAEBAAAAAAAAAAAAAAAAAAAAkREBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AdVFnX//Z) 48px 0 repeat-y;
+    filter:Alpha(opacity=90);
+    -moz-opacity:.9;
+    opacity:.9;
+    margin-left:15px
+}
+.main-content .main-content-box ul.list li .say-pic-box img {
+    border-radius:50px;
+    margin-top:5px
+}
+.main-content .main-content-box ul.list li:first-child .say-pic-box {
+    height:120px;
+    position:relative;
+    top:10px
+}
+.main-content .main-content-box ul.list li:first-child .say-pic-box img {
+    margin-top:0
+}
+.main-content .main-content-box ul.list li .say-text {
+    width:830px;
+    height:100px;
+    background:#f8f8f8;
+    display:block;
+    border-radius:5px;
+    border:1px solid #e2dfdf;
+    font-size:14px;
+    margin:10px 10px 0 0;
+    color:#10200a
+}
+.main-content .main-content-box ul.list li .say-text p.info {
+    width:810px;
+    height:70px;
+    padding:10px
+}
+.main-content .main-content-box ul.list li .say-text p.info .date-time {
+    display:block;
+    width:85px;
+    height:25px;
+    line-height:25px;
+    background:#ee5a5a;
+    border-radius:3px;
+    text-align:center;
+    color:#fff;
+    position:absolute;
+    right:18px;
+    bottom:32px;
+    font-size:14px
+}
+.main-content .main-content-box ul.list li .say-text:hover {
+    background:#f4f2f2;
+    color:#333
+}
+.main-content .main-content-box ul.list li:before {
+    content:"";
+    width:0;
+    height:0;
+    border-style:solid;
+    border-width:0 0 20px 22px;
+    border-color:transparent transparent transparent #fff;
+    position:absolute;
+    left:115px;
+    top:42px
+}
+.main-content .main-content-box ul.list li:after {
+    content:"";
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    position:absolute;
+    left:139px;
+    top:38px;
+    background:#ccccce;
+    border:2px solid #fff;
+    transition:all .5s
+}
+.main-content .main-content-box ul.list li:hover:before {
+    border-color:transparent transparent transparent #cecccd;
+    cursor:pointer
+}
+.main-content .main-content-box ul.list li:hover:after {
+    border:2px solid #fff;
+    background:#999;
+    cursor:pointer
+}
+.main-content .main-content-box .loaded-warp-box {
+    margin:10px 0;
+    padding:10px 0;
+    text-align:center;
+    font-size:14px;
+    color:#7d7c7d
+}

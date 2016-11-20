@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+    *{
+        margin: 0;
+        padding: 0;
+	}
+    body{width:100%;
+        height:100%; overflow: hidden;}
+    #box{
+        width: 700px;
+        height: 400px;
+        margin:100px auto;
+        position: relative;
+        background:url('img/d0.jpg') no-repeat;
+    }
+    #box .page{
+        width:50%;
+        height:100%;
+        position: absolute;
+        right:0;
+        top:0;
+        z-index:2;
+        transform-style:preserve-3d;
+        transition:1s all ease;
+        transform-origin:left center;
+        transform:perspective(800px) rotateY(0deg);
+		transform-origin:left center;
+    }
+    #box .page2{
+        width:50%;
+        height:100%;
+        position: absolute;
+        right:0;
+        top:0;
+        background: url("img/d1.jpg") right top no-repeat;
+    }
+    .page div{
+        width:100%;
+        height:100%;
+        position: absolute;
+        left:0;
+        top: 0;
+    }
+    .page .front{
+        background:url('img/d0.jpg') right top no-repeat;
+        z-index:2;
+        backface-visibility: hidden;
+    }
+    .page .back{
+        background:url('img/d1.jpg') left top no-repeat;
+        transform:scale(-1,1);
+    }
+</style>
+<script>
+    window.onload = function(){
+        var oBox = document.getElementById('box');
+        var oFront = document.querySelectorAll('.front')[0];
+        var oBack = document.querySelectorAll('.back')[0];
+        var oPage = document.querySelectorAll('.page')[0];
+        var oPage2 = document.querySelectorAll('.page2')[0];
+        var iNow = 0;
+        var bReady = true;
+        oBox.onclick = function(){
+            if(bReady==false){return;}
+            bReady = false;
+            iNow++;
+            oPage.style.transform = 'perspective(800px) rotateY(-180deg)';
+            oPage.style.transition = '1s all ease';
+            oPage.addEventListener('transitionend',function(){
+                bReady = true;
+                oPage.style.transition = 'none';
+                oPage.style.transform = 'perspective(800px) rotateY(0deg)';
+                oBox.style.backgroundImage ='url(img/d'+(iNow%3)+'.jpg)';
+                oFront.style.backgroundImage ='url(img/d'+((iNow%3))+'.jpg)';
+                oPage2.style.backgroundImage ='url(img/d'+((iNow+1)%3)+'.jpg)';
+                oBack.style.backgroundImage ='url(img/d'+((iNow+1)%3)+'.jpg)';
+
+            },false);
+        };
+    };
+</script>
+</head>
+<body>
+	<div id="box">
+	    <div class="page">
+	        <div class="front"></div>
+	        <div class="back"></div>
+	    </div>
+	    <div class="page2"></div>
+	</div>
+</body>
+</html>

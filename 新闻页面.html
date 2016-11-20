@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no">
+<title>新闻页面</title>
+<style>
+    *{margin:0;padding:0;}
+    html,body{
+        height: 100%;
+        font-size:20px;
+    }
+    .wrap{
+        width: 100%;
+        overflow: hidden;
+    }
+    .wrap header,.wrap footer{
+        height: 40px;
+        line-height:40px;
+        background: #399;
+        text-align: center;
+        color: #fff;
+        width: 100%;
+    }
+    .news{width: 400%; overflow: hidden;}
+    .news dl{width:25%;
+        float: left;
+    }
+    .news dt{
+        height:30px;
+        background: #ccc;
+        line-height:30px;
+        text-align: center;
+    }
+    .news dd{
+        height:30px;
+        line-height:30px;
+        text-align: center;
+        border: 1px dashed #eee;
+        color: #333;
+    }
+    .wrap footer{
+        position: fixed;
+        left:0;
+        bottom: 0;
+    }
+    .refresh_box{
+        text-align: center;
+        height:0px;
+        overflow: hidden;;
+    }
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var oNews = document.querySelectorAll('.news')[0];
+        var aDl = document.querySelectorAll('.news dl');
+        var oRef = document.querySelectorAll('.refresh_box')[0];
+        var x = 0;
+        var y = 0;
+        var iNow = 0;
+        var dir = '';
+        oNews.addEventListener('touchstart', function (ev) {
+            oNews.style.transition = 'none';
+            var downX = ev.targetTouches[0].pageX;
+            var downY = ev.targetTouches[0].pageY;
+            var disX = downX - x;
+            var disY = downY - y;
+
+            function fnMove(ev) {
+                if (dir) {
+                    //方向存在 判断是上下还是左右
+                    if (dir == 'lr') {
+                        x = ev.targetTouches[0].pageX - disX;
+                        oNews.style.transform = 'translate(' + x + 'px,' + y + 'px)';
+                    } else if (dir == 'top') {
+                        y = ev.targetTouches[0].pageY - disY;
+                        y>80&&(y=80);
+                        oRef.style.height = y +'px';
+                    }
+                } else {
+                    //没方向  判断方向
+                    if (Math.abs(ev.targetTouches[0].pageX - downX)>50) {
+                        //横向拖动
+                        dir = 'lr';
+                    } else if (ev.targetTouches[0].pageY-downY>20) {
+                        dir = 'top';
+                    }
+                }
+            }
+            function fnEnd(ev) {
+                var upX = ev.changedTouches[0].pageX;
+                document.removeEventListener('touchmove', fnMove, false);
+                document.removeEventListener('touchend', fnEnd, false);
+                y = 0;
+                oRef.style.height = 0;
+                oRef.style.transition = '.4s all ease';
+                oNews.style.transition = '.4s all ease';
+                //超过距离
+                if(Math.abs(upX - downX)>50){
+                    if(downX>upX){
+                        iNow++;
+                        if(iNow==aDl.length) iNow = aDl.length-1;
+                    }else {
+                        iNow--;
+                        if(iNow==-1) iNow = 0;
+                    }
+                }
+                x = - iNow*aDl[0].offsetWidth;
+                oNews.style.transform = 'translate('+x+'px,'+y+'px)';
+                dir = '';
+            }
+            document.addEventListener('touchmove', fnMove, false);
+            document.addEventListener('touchend', fnEnd, false);
+            ev.preventDefault();
+        }, false);
+    }, false);
+
+</script>
+</head>
+<div class="wrap">
+    <header>header</header>
+    <section>
+        <div class="refresh_box">
+            <img src="img/roller.gif" alt=""><br>
+            <span>下拉刷新</span>
+        </div>
+        <div class="news">
+            <dl>
+                <dt>新闻1</dt>
+                <dd>000001</dd>
+                <dd>000002</dd>
+                <dd>000003</dd>
+                <dd>000004</dd>
+                <dd>000005</dd>
+                <dd>000006</dd>
+                <dd>000007</dd>
+                <dd>000008</dd>
+                <dd>000009</dd>
+                <dd>000010</dd>
+            </dl>
+            <dl>
+                <dt>新闻2</dt>
+                <dd>000001</dd>
+                <dd>000002</dd>
+                <dd>000003</dd>
+                <dd>000004</dd>
+                <dd>000005</dd>
+                <dd>000006</dd>
+                <dd>000007</dd>
+                <dd>000008</dd>
+                <dd>000009</dd>
+                <dd>000010</dd>
+            </dl>
+            <dl>
+                <dt>新闻3</dt>
+                <dd>000001</dd>
+                <dd>000002</dd>
+                <dd>000003</dd>
+                <dd>000004</dd>
+                <dd>000005</dd>
+                <dd>000006</dd>
+                <dd>000007</dd>
+                <dd>000008</dd>
+                <dd>000009</dd>
+                <dd>000010</dd>
+            </dl>
+            <dl>
+                <dt>新闻4</dt>
+                <dd>000001</dd>
+                <dd>000002</dd>
+                <dd>000003</dd>
+                <dd>000004</dd>
+                <dd>000005</dd>
+                <dd>000006</dd>
+                <dd>000007</dd>
+                <dd>000008</dd>
+                <dd>000009</dd>
+                <dd>000010</dd>
+            </dl>
+        </div>
+    </section>
+    <footer>footer</footer>
+</div>
+<body>
+</body>
+</html>

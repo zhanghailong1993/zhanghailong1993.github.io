@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>音乐</title>
+    <link rel="stylesheet" href="css/js.css">
+    <style>
+        *{margin:0;padding:0;list-style: none;}
+        .playDiv{
+            width:610px;
+            margin-bottom:15px;
+            border:1px solid #92b0dd;
+            background-color:#fff;
+            margin:100px auto 10px;
+        }
+        .currentMusic{
+            width:100%;
+            height:24px;
+            background-color: #e2eaf8;
+        }
+        .text{
+            padding-left:5px;
+        }
+        .playDiv audio{
+            width:99.5%;
+            padding-left:2px;
+        }
+       
+        .lastMusic {
+            background-color: #E2EAF8;
+            text-align: center;
+            height: 32px;
+        }
+         .lastMusic input{
+            cursor:pointer;
+            margin-left:5px;
+        }
+        .currentAudio{
+            background-color: #E2EAF8;
+        }
+        .content{
+            width:614px;
+            overflow: hidden;
+            margin:0 auto;
+        }
+        .songStyle {
+            width: 300px;
+            margin-bottom: 20px;
+            border: 1px solid #96C2F1;
+            background-color: #EFF7FF;
+            float: left;
+        }
+        .songStyle h3 {
+            margin: 1px;
+            padding: 1px 1px 1px 10px;
+            background-color: #B2D3F5;
+            height: 24px;
+        }
+        .float_r {
+            float: right;
+        }
+        option {
+            font-weight: normal;
+            display: block;
+            white-space: pre;
+            min-height: 1.2em;
+            padding: 0px 2px 1px;
+        }
+        #musicList li {
+            line-height: 20px;
+            padding-bottom: 3px;
+            cursor:pointer;
+            font-size:16px;
+            text-align: center;
+        }
+        ul li.on{
+            background:url("img/play.gif") no-repeat right center;
+        }
+        .infoStyle {
+            margin-left: 10px;
+            width: 300px;
+            margin-bottom: 20px;
+            border: 1px solid #96C2F1;
+            background-color: #EFF7FF;
+            float: left;
+        }
+        .infoStyle h3 {
+            margin: 1px;
+            padding: 1px 1px 1px 10px;
+            background-color: #B2D3F5;
+            height: 24px;
+        }
+        #infos{
+            width: 100%;
+            height: 92px;
+        }
+        .info {
+            width: 60%;
+        }
+        .info div {
+            padding: 10px 0px 10px 10px;
+            font-size: 13px;
+        }
+        strong span {
+            margin-left: 4px;
+        }
+    </style>
+    <script>
+    window.onload=function(){
+        var aLi=document.querySelectorAll('#musicList li');
+        var oA = document.getElementById('musicBox');
+         var aBtn = document.querySelectorAll('input');
+         var oP=document.getElementById('playMsg');
+         var oName=document.getElementById('name');
+         var oT=document.getElementById('autor');
+        var arr = ['小苹果','时间都去哪儿了','雨的印记','千千阙歌','夜的钢琴曲'];
+        var arrName = ['Tara-小苹果','时间都去哪儿了','雨的印记','千千阙歌','夜的钢琴曲'];
+         var arrA = ['Tara','王铮亮','李闰珉','钢琴曲','钢琴曲'];
+        var iNow=0;
+        for(var i=0;i<aLi.length;i++){
+            aLi[i].index=i;
+            aLi[i].ondblclick=function(){
+                iNow=this.index;
+                play();
+            };
+        }
+         //单曲循环
+            aBtn[0].onclick = function(){oA.playState = 1};
+            aBtn[1].onclick = function(){oA.playState = 2};
+            aBtn[2].onclick = function(){oA.playState = 3};
+            aBtn[3].onclick = function(){oA.playState = 4};
+            oA.onended = function(){
+                switch (oA.playState){
+                    case 1:
+                        play();
+                        break;
+                    case 2:
+                        iNow++;
+                        play();
+                        break;
+                    case 3:
+                        iNow = rnd(0,arr.length);
+                        play();
+                        break;
+                    case 4:
+                        iNow++;
+                        if(iNow==arr.length){iNow=0;}
+                        play();
+                        break;
+                }
+
+            };
+            function rnd(m,n){
+                return parseInt(m+Math.random()*(n-m));
+            }
+            function play(){
+
+                for(var i = 0;i<aLi.length;i++){
+                    aLi[i].className = '';
+                }
+                aLi[iNow].className = 'on';
+                oA.src = 'audio/'+arr[iNow]+'.mp3';
+                oA.play();
+                oP.innerHTML=arrName[iNow];
+                oName.innerHTML=oP.innerHTML;
+                oT.innerHTML=arrA[iNow];
+            }
+
+    };
+    </script>
+</head>
+<body>
+    <div class="playDiv">
+        <div class="currentMusic">
+            <span class="text">
+                "当前正在播放:"
+                <span id="playMsg">Tara-小苹果【Tara】</span>
+            </span>
+        </div>
+        <div class="currentAudio">
+            <audio src="audio/小苹果.mp3" id="musicBox" controls autoplay></audio>
+        </div>
+        <div class="currentBtns">
+            <div id="lastMusic" class="lastMusic">
+               <input type="button" value="单曲循环">
+                <input type="button" value="顺序播放">
+                <input type="button" value="随机播放">
+                <input type="button" value="循环播放">
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="songStyle">
+            <h3>
+                歌曲列表
+            </h3>
+            <div id="songs">
+                <ul id="musicList">
+                     <li class="on">Tara-小苹果</li>
+                     <li>时间都去哪儿了</li>
+                    <li>雨的印记</li>
+                    <li>千千阙听</li>
+                    <li>也得钢琴曲</li>
+                </ul>
+            </div>
+        </div>
+        <div class="infoStyle">
+            <h3>歌曲信息</h3>
+            <div id="infos">
+                <div class="info">
+                    <div>
+                    <strong>
+                        <span>歌名：</span>
+                        <span id="name">Tara-小苹果</span>
+                    </strong>
+                </div>
+                    <div>
+                        <strong>
+                            <span>歌手：</span>
+                            <span id="autor">Tara</span>
+                        </strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wrap red">
+        <div class="shadow"></div>
+        <div class="ball"></div>
+    </div>
+    <div class="wrap green">
+        <div class="shadow"></div>
+        <div class="ball">
+        </div>
+    </div>
+    <div class="wrap blue">
+        <div class="shadow"></div>
+        <div class="ball"></div>
+    </div>
+
+</body>
+</html>

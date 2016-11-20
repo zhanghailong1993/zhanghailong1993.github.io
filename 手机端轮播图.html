@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no">
+    <title>手机轮播图</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style:none;
+        }
+        html{
+            font-size:20px;
+        }
+        #box{
+            width:16rem;
+            height:10.8rem;
+            overflow: hidden;
+            position: relative;
+        }
+        li img{
+            width:16rem;
+            height:10.8rem;
+        }
+        ul{
+            width:112rem;
+            overflow: hidden;
+            transform:translateX(-16rem);
+        }
+        ul li{
+            width:16rem;
+            height:10.8rem;
+            float: left;
+        }
+        .click{
+            position: absolute;
+            width:3rem;
+            height:0.5rem;
+            left:50%;
+            bottom:0.8rem;
+            overflow: hidden;
+            margin-left:-1.5rem;
+        }
+        .click span{
+            width:0.5rem;
+            height:0.5rem;
+            border-radius:50%;
+            background: #fff;
+            float: left;
+            margin-right:0.1rem;
+        }
+    </style>
+    <script>
+        (function(win,doc){
+            function  change(){
+                doc.documentElement.style.fontSize=20*doc.documentElement.clientWidth/320+'px';
+            }
+            change();
+            win.addEventListener('resize',change,false);
+        })(window,document);
+        document.addEventListener('DOMContentLoaded',function(){
+            var oUl=document.querySelector('ul');
+            var oS=document.querySelectorAll('.click')[0];
+            var aSpan=oS.children;
+            var aLi=oUl.children;
+            var iNow=1;
+            var x=-aLi[0].offsetWidth*iNow;
+            var bReady = true;
+            play(iNow);
+            oUl.addEventListener('touchstart',function(ev){
+                if(bReady==false){
+                    return ;
+                }
+                bReady=false;
+                var downX=ev.targetTouches[0].pageX;
+                var disX=downX-x;
+                oUl.style.transition ='none';
+                function fnMove(ev){
+                    x=ev.targetTouches[0].pageX-disX;
+                    oUl.style.transform='translateX('+x+'px)';
+                }
+                function fnEnd(ev){
+                    document.removeEventListener('touchmove',fnMove,false);
+                    document.removeEventListener('touchend',fnEnd,false);
+                    var upX=ev.changedTouches[0].pageX;
+                    oUl.style.transition='.4s all ease';
+                    if(Math.abs(upX-downX)>50){
+                        if(upX<downX){
+                                iNow++;
+                                if(iNow==aLi.length) iNow=aLi.length-1;
+                        }else{
+                            iNow--;
+                            if(iNow==-1) iNow=0;
+                        }
+                    }
+                    x=-aLi[0].offsetWidth*iNow;
+                    oUl.style.transform='translateX('+x+'px)';
+                    function end(){
+                        bReady = true;
+                        oUl.style.transition='none';
+                        if(iNow==aLi.length-1){
+                            iNow=1;
+                        }
+                        if(iNow==0){
+                            iNow=aLi.length-2;
+                        }
+                        play(iNow);
+                        x=-aLi[0].offsetWidth*iNow;
+                        oUl.style.transform='translateX('+x+'px)';
+                    }
+                    oUl.addEventListener('transitionend',end,false);
+                }
+                document.addEventListener('touchmove',fnMove,false);
+                document.addEventListener('touchend',fnEnd,false);
+                ev.preventDefault();
+            },false);
+            function play(iNow){
+                for(var i=0;i<aSpan.length;i++){
+                    aSpan[i].style.background='';
+                }
+                aSpan[iNow-1].style.background='red';
+            }
+        },false);
+    </script>
+</head>
+<body>
+    <div id="box">
+        <ul>
+            <li><img src="img/05.jpg" alt=""></li>
+            <li><img src="img/01.jpg" alt=""></li>
+            <li><img src="img/02.jpg" alt=""></li>
+            <li><img src="img/03.jpg" alt=""></li>
+            <li><img src="img/04.jpg" alt=""></li>
+            <li><img src="img/05.jpg" alt=""></li>
+            <li><img src="img/01.jpg" alt=""></li>
+        </ul>
+        <div class="click">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</body>
+</html>

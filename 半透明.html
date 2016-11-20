@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no">
+    <title>Title</title>
+    <script src="js/jquery-1.7.2.js"></script>
+    <style>
+        *{margin:0;padding:0;
+            list-style: none;
+        }
+        .hjj5 {
+            width: 950px;
+            overflow: hidden;
+            margin: 100px auto;
+        }
+        .hjj5 ul li{
+            width:297px;
+            height:198px;
+            float: left;
+            margin:0 15px 15px 0;
+            position: relative;
+            overflow: hidden;
+            cursor:pointer;
+        }
+        .hjj5 .txt h3 {
+            font-size: 20px;
+            font-weight: 100;
+            height: 45px;
+            text-align: center;
+            line-height: 45px;
+        }
+        .hjj5 .txt p {
+            font-size: 14px;
+            text-align: center;
+        }
+        .hjj5 .txt {
+            width: 297px;
+            height: 45px;
+            position: absolute;
+            background: rgba(0,0,0,.4);
+            left: 0;
+            bottom: 0;
+            color: #fff;
+            font-family: "微软雅黑";
+        }
+    </style>
+    <script>
+        $(function(){
+            $(".hjj5 ul li").hover(function(){
+                $(this).find('.txt').stop().animate({height:'198'},400);
+                $(this).find('.txt h3').stop().animate({paddingTop:'60px'},400);},function(){
+                $(this).find('.txt').stop().animate({height:'45'},400);
+                $(this).find('.txt h3').stop().animate({paddingTop:'0px'},400)
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="hjj5">
+        <ul>
+            <li>
+                <img src="img/class1.jpg" alt="">
+                <div class="txt">
+                    <h3 >IT培训</h3>
+                    <p>为你铺垫学习之路</p>
+                </div>
+            </li>
+            <li>
+                <img src="img/class3.jpg" alt="">
+                <div class="txt">
+                    <h3 >职业技能</h3>
+                    <p>为你铺垫学习之路</p>
+                </div>
+            </li>
+            <li>
+                <img src="img/class2.jpg" alt="">
+                <div class="txt">
+                    <h3 >职业技能</h3>
+                    <p>为你铺垫学习之路</p>
+                </div>
+            </li>
+            <li>
+                <img src="img/class1.jpg" alt="">
+                <div class="txt">
+                    <h3 >IT培训</h3>
+                    <p>为你铺垫学习之路</p>
+                </div>
+            </li>
+            <li>
+                <img src="img/class3.jpg" alt="">
+                <div class="txt">
+                    <h3 >职业技能</h3>
+                    <p>为你铺垫学习之路</p>
+                </div>
+            </li>
+            <li>
+                <img src="img/class2.jpg" alt="">
+                <div class="txt">
+                    <h3 >职业技能</h3>
+                    <p>为你铺垫学习之路</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

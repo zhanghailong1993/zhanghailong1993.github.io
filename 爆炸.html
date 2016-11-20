@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>3D爆炸</title>
+<style>
+    *{margin:0;padding:0;}
+    html,body{
+        height: 100%;
+        width:100%;
+        overflow: hidden;
+    }
+    #box{width:700px;
+        height: 400px;
+        margin:50px auto;
+        position: relative;
+        background-image: url("img/d1.jpg");
+    }
+    #box span{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+
+        transform:rotateY(0deg);
+        background-image: url("img/d0.jpg");
+    }
+</style>
+<script>
+    function rnd(m,n){
+        return parseInt(Math.random()*(n-m)+m);
+    }
+    window.onload = function(){
+        var oBox = document.getElementById('box');
+        var C = 7;
+        var R = 4;
+        for(var r = 0;r<R;r++){
+            for(var c = 0;c<C;c++){
+                var oSpan = document.createElement('span');
+                oSpan.style.width = oBox.offsetWidth/C +'px';
+                oSpan.style.height = oBox.offsetHeight/R +'px';
+                oSpan.style.left = oBox.offsetWidth/C*c+'px';
+                oSpan.style.top = oBox.offsetHeight/R*r+'px';
+                oBox.appendChild(oSpan);
+                oSpan.style.backgroundPosition = -oSpan.offsetLeft+'px '+-oSpan.offsetTop+'px';
+            }
+        }
+        var iNow =0;
+        var bReady = true;
+        oBox.onclick = function(){
+            if(bReady==false){return;}
+            bReady = false;
+            iNow++;
+            var aSpan = oBox.children;
+            for(var i = 0;i<aSpan.length;i++){
+                aSpan[i].style.transition = '.4s all ease';
+                var x = aSpan[i].offsetWidth/2+aSpan[i].offsetLeft -oBox.offsetWidth/2;
+                var y = aSpan[i].offsetHeight/2+aSpan[i].offsetTop -oBox.offsetHeight/2;
+                aSpan[i].style.transform = 'perspective(800px)translateX('+x+'px) translateY('+y+'px) rotateX('+rnd(-180,180)+'deg) rotateY('+rnd(-180,180)+'deg) scale(1.4)';
+                aSpan[i].style.opacity = 0;
+
+            }
+            //换图
+            aSpan[0].addEventListener('transitionend',function(){
+                bReady = true;
+                for(var i = 0;i<aSpan.length;i++){
+                    aSpan[i].style.transition = 'none';
+                    aSpan[i].style.transform = 'perspective(800px)translateX(0px) translateY(0px) rotateX(0deg) rotateY(0deg) scale(1)';
+                    aSpan[i].style.opacity = 1;
+                    aSpan[i].style.backgroundImage ='url("img/d'+(iNow%3)+'.jpg")';
+                    oBox.style.backgroundImage ='url("img/d'+((iNow+1)%3)+'.jpg")';
+                }
+            },false)
+
+        };
+    };
+</script>
+</head>
+<body>
+    <div id="box">
+
+    </div>
+</body>
+</html>

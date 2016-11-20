@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+    <title>鼠标经过图片以小动画的形式显示文字说明</title>
+    <link rel="stylesheet" type="text/css" href="css/lanrenzhijia.css" />
+</head>
+<body>
+<!-- 代码部分begin -->
+<div class="examples_body">
+    <ul class="bannerHolder">
+        <li>
+            <div class="banner"> <a href="#"> <img src="img/y1.jpeg" /> </a>
+                <p class="companyInfo">图片信息一</p>
+                <div class="cornerTL"></div>
+                <div class="cornerTR"></div>
+                <div class="cornerBL"></div>
+                <div class="cornerBR"></div>
+            </div>
+        </li>
+        <li>
+            <div class="banner"> <a href="#"> <img  src="img/y2.jpg" /> </a>
+                <p class="companyInfo">图片信息二</p>
+                <div class="cornerTL"></div>
+                <div class="cornerTR"></div>
+                <div class="cornerBL"></div>
+                <div class="cornerBR"></div>
+            </div>
+        </li>
+        <li>
+            <div class="banner"> <a href="#"> <img src="img/y3.jpg" /> </a>
+                <p class="companyInfo">图片信息三</p>
+                <div class="cornerTL"></div>
+                <div class="cornerTR"></div>
+                <div class="cornerBL"></div>
+                <div class="cornerBR"></div>
+            </div>
+        </li>
+        <li>
+            <div class="banner"> <a href="#"> <img src="img/y4.jpeg" /> </a>
+                <p class="companyInfo">图片信息四</p>
+                <div class="cornerTL"></div>
+                <div class="cornerTR"></div>
+                <div class="cornerBL"></div>
+                <div class="cornerBR"></div>
+            </div>
+        </li>
+        <li>
+            <div class="banner"> <a href="#"> <img src="img/y5.jpg" /> </a>
+                <p class="companyInfo">图片信息五</p>
+                <div class="cornerTL"></div>
+                <div class="cornerTR"></div>
+                <div class="cornerBL"></div>
+                <div class="cornerBR"></div>
+            </div>
+        </li>
+    </ul>
+</div>
+<script src="js/jquery-1.7.2.js"></script>
+<script>
+    $(function(){
+        $('.banner div').css('opacity',0.4);
+        $('.banner').hover(function(){
+            var el = $(this);
+            el.find('div').stop().animate({width:200,height:200},'slow',function(){
+                el.find('p').fadeIn('fast');
+            });
+        },function(){
+            var el = $(this);
+            el.find('p').stop(true,true).hide();
+            el.find('div').stop().animate({width:60,height:60},'fast')
+        });
+    })
+</script>
+<!-- 代码部分end -->
+</body>
+</html>

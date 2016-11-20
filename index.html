@@ -2,87 +2,276 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
-<style>
-    *{
-        margin: 0;
-        padding: 0;
-        list-style: none;
-    }
-    body{
-        background: #000;
-    }
-    ul{
-        width:133px;
-        height: 200px;
-        position: absolute;
-        left:50%;
-        top:40%;
-        margin:-100px 0 0 -67px;
-        transform-style:preserve-3d;
-        transform:perspective(800px) rotateX(-10deg);
-    }
-    ul li{
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        left:0;
-        top: 0;
-        background: url("img2/1.jpg") no-repeat;
-        border-radius:8px;
-        -webkit-box-shadow: 0 0 10px #fff;
-        transform:rotateY(0deg) translateZ(0px);
-        transition:1s all ease;
-        color:red;
-        font-size:20px;
-        -webkit-box-reflect:below 10px -webkit-linear-gradient(rgba(0,0,0,0) 40%,rgba(0,0,0,0.4));
-    }
-</style>
-<script>
-    window.onload = function(){
-        var oUl = document.getElementById('ul1');
-        var N = 11;
-        for(var i = 0;i<N;i++){
-            var oLi = document.createElement('li');
-            oLi.style.backgroundImage = 'url(img2/'+(i+1)+'.jpg)';
-            oUl.appendChild(oLi);
-            (function(oLi,i){
-                setTimeout(function(){
-                    oLi.style.transition ='1s all ease '+(200*(N-i))+'ms';
-                    oLi.style.transform ='rotateY('+(360/N*i)+'deg) translateZ(300px)';
-                },0);
-            })(oLi,i);
-        }
-        var aLi = oUl.children;
-        var y = 0;
-        aLi[0].addEventListener('transitionend',function(){
-            document.onmousedown = function(ev){
-                var disX = ev.clientX - y;
-                document.onmousemove = function(ev){
-                    y = ev.clientX -disX;
-                    change(y/3);
-                };
-                document.onmouseup = function(){
-                    document.onmousemove = null;
-                    document.onmouseup = null;
-                };
-                return false;
-            };
-        },false);
-        function change(y){
-            for(var i= 0;i<aLi.length;i++){
-                aLi[i].style.transition = '1s all ease';
-                aLi[i].style.transform ='rotateY('+(360/N*i+y)+'deg) translateZ(300px)';
-                var scale = Math.abs((360/N*i+y)%360-180)/180;
-                scale<0.3&&(scale=0.3);
-                aLi[i].style.opacity = scale;
-                console.log(scale);
-            }
-        }
-    };
-</script>
+    <title>张海龙的个人网站</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/index1.css">
+    <script src="js/base.js"></script>
 </head>
 <body>
-    <ul id="ul1"></ul>
+    <header class="header-wrap clearfix">
+        <h1 class="fl">张海龙个人博客</h1>
+        <div class="header-text-box fl">
+            <ul class="text-box">
+                <li  class="text-1">从不羡慕别人的优秀，因为相信自己也可以优秀</li>
+                <li class="text-2">闲下来时多看看书，书里面的故事，总有你学到的人生</li>
+                <li class="text-3">--By:张海龙</li>
+            </ul>
+        </div>
+        <div class="logo-pic fr">
+            <img src="img/logo-pic-bg.jpg" alt="头部背景图" height="115" width="129">
+        </div>
+    </header>
+    <nav id="nav" class="nav-wrap">
+        <ul class="clearfix">
+            <li><a href="博客.html" id="active">首页</a></li>
+            <li><a href="JS效果.html"  target="blank">JS特效</a></li>
+            <li><a href="个人笔记.html"  target="blank">个人日记</a></li>
+            <li><a href="self.html"  target="blank">关于自己</a></li>
+            <li><a href="youxi.html"  target="blank">小游戏</a></li>
+        </ul>
+    </nav>
+    <div id="banner" class="banner-wrap clearfix">
+        <div class="banner-left fl">
+            <div id="bannerContent" class="content">
+                <ul>
+                    <li><a href="javascript:;"><img src="img/c1.jpg" alt=""></a></li>
+                    <li><a href="javascript:;"><img src="img/c2.jpg" alt=""></a></li>
+                    <li><a href="javascript:;"><img src="img/c3.jpg" alt=""></a></li>
+                    <li><a href="javascript:;"><img src="img/c4.jpg" alt=""></a></li>
+                    <li><a href="javascript:;"><img src="img/c5.jpg" alt=""></a></li>
+                </ul>
+            </div>
+            <div class="switch-btn-box">
+                <div class="hover-bg" style="margin-top:0px;"></div>
+                <ul id="switchBtn">
+                    <li><a href="javascript:;"><img src="img/sb1.jpg" alt=""></a></li>
+                    <li><a href="javascript:;"><img src="img/sb2.jpg" alt=""></a></li>
+                    <li><a href="javascript:;"><img src="img/sb3.jpg" alt=""></a></li>
+                    <li><a href="javascript:;"><img src="img/sb4.jpg" alt=""></a></li>
+                    <li><a href="javascript:;"><img src="img/sb5.jpg" alt=""></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="banner-right fr">
+            <p class="right-text">
+                毕竟不是作家，下不出那么多的好文章。--因为没有丰富的阅历和经验!
+            </p>
+        </div>
+    </div>
+    <div class="show-module-wrap clearfix">
+        <div class="blogs fl">
+            <dl class="bloglist3">
+                <h3><a href="JS效果.html">JS效果分享</a></h3>
+                <dd>
+                    <div class="arrow_boxing">
+                        <ul class="texting">
+                            <a href="导航.html" title="首页导航"  target="blank"><img src="uploads/1.png" alt=""></a>
+                            <p><a href="#">首页导航</a></p>
+                        </ul>
+                    </div>
+                </dd>
+                <dd>
+                    <div class="arrow_boxing">
+                        <ul class="texting">
+                            <a href="手风琴.html" title="手风琴"  target="blank"><img src="uploads/2.png" alt=""></a>
+                            <p><a href="#">手风琴</a></p>
+                        </ul>
+                    </div>
+                </dd>
+                <dd>
+                    <div class="arrow_boxing">
+                        <ul class="texting">
+                            <a href="音乐.html" title="音乐播放"  target="blank"><img src="uploads/3.png" alt=""></a>
+                            <p>
+                                <a href="#">音乐播放</a>
+                            </p>
+                        </ul>
+                    </div>
+                </dd>
+            </dl>
+        </div>
+        <div class="video-module fr">
+            <h2 class="title-h2">
+                网页动态效果
+                <span>Web </span>
+            </h2>
+            <div class="content">
+                <ul>
+                    <li><a href="javascript:;" title="点击查看效果">JS效果1</a></li>
+                    <li><a href="javascript:;" title="点击查看效果">JS效果2</a></li>
+                    <li><a href="javascript:;" title="点击查看效果">JS效果3</a></li>
+                    <li><a href="javascript:;" title="点击查看效果">JS效果4</a></li>
+                    <li><a href="javascript:;" title="点击查看效果">JS效果5</a></li>
+                    <li><a href="javascript:;" title="点击查看效果">JS效果6</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="main-content clearfix">
+        <div class="main-content-left fl">
+            <div class="blogs b1">
+                <dl class="bloglist3">
+                    <h3><a href="JS效果.html"  target="blank">JS效果分享</a></h3>
+                    <dd>
+                        <div class="arrow_boxing">
+                            <ul class="texting">
+                                <a href="鼠标经过图片小动画.html" title="鼠标经过图片小动画"  target="blank"><img src="uploads/4.png" alt=""></a>
+                                <p><a href="#">鼠标经过图片小动画</a></p>
+                            </ul>
+                        </div>
+                    </dd>
+                    <dd>
+                        <div class="arrow_boxing">
+                            <ul class="texting">
+                                <a href="手机端轮播图.html" title="手机端轮播图"  target="blank"><img src="uploads/5.png" alt=""></a>
+                                <p><a href="#">手机端轮播图</a></p>
+                            </ul>
+                        </div>
+                    </dd>
+                    <dd>
+                        <div class="arrow_boxing">
+                            <ul class="texting">
+                                <a href="分页的效果.html" title="分页的效果"  target="blank"><img src="uploads/10.png" alt=""></a>
+                                <p>
+                                    <a href="#">分页的效果</a>
+                                </p>
+                            </ul>
+                        </div>
+                    </dd>
+                </dl>
+            </div>
+            <div class="blogs b1">
+                <dl class="bloglist3">
+                    <h3><a href="JS效果.html">JS效果分享</a></h3>
+                    <dd>
+                        <div class="arrow_boxing">
+                            <ul class="texting">
+                                <a href="苹果手机特效.html" title="苹果手机特效"  target="blank"><img src="uploads/7.png" alt=""></a>
+                                <p><a href="#">苹果手机特效</a></p>
+                            </ul>
+                        </div>
+                    </dd>
+                    <dd>
+                        <div class="arrow_boxing">
+                            <ul class="texting">
+                                <a href="新闻页面.html" title="新闻页面"  target="blank"><img src="uploads/8.png" alt=""></a>
+                                <p><a href="#">新闻页面</a></p>
+                            </ul>
+                        </div>
+                    </dd>
+                    <dd>
+                        <div class="arrow_boxing">
+                            <ul class="texting">
+                                <a href="爆炸.html" title="3D爆炸"  target="blank"><img src="uploads/9.png" alt=""></a>
+                                <p>
+                                    <a href="#">3D爆炸</a>
+                                </p>
+                            </ul>
+                        </div>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+        <div class="main-content-side fr">
+            <div id="searchBox">
+                <h2 class="title-h2">站内搜索</h2>
+                <div class="search-wrap">
+                    <form action="search.php" name="formsearch" method="post">
+                        <input type="text" id="searchValue" class="search-value" name="q" placeholder="请输入你要搜索的东西">
+                        <input class="search-btn" type="submit" value="">
+                    </form>
+                </div>
+            </div>
+            <div class="side-nav">
+                <ul class="clearfix">
+                    <li class="nav-1"><a href="self.html"  target="blank">关于我</a></li>
+                    <li class="nav-2"><a href="个人笔记.html" target="blank">日记</a></li>
+                    <li class="nav-3"><a href="半透明.html"  target="blank">半透明特效</a></li>
+                    <li class="nav-4"><a href="javascript:;">JS效果</a></li>
+                </ul>
+            </div>
+            <div class="hot-recommend-wrap">
+                <h2 class="title-h2">热门推荐</h2>
+                <div id="hotRecommend" class="hot-recommend">
+                    <p class="active-line" style="width: 97px; left: 0px;"></p>
+                    <ul class="hot-recommend-nav clearfix">
+                        <li class="active">点击排行</li>
+                        <li class="">建站知识</li>
+                        <li class="">个人笔记</li>
+                    </ul>
+                    <div class="hot-recommend-content" style="width: 870px; left:0px">
+                        <div class="list">
+                            <ul>
+                                <li><a href="#" title="JS效果1">JS效果1</a></li>
+                                <li><a href="#" title="JS效果2">JS效果2</a></li>
+                                <li><a href="#" title="JS效果3">JS效果3</a></li>
+                                <li><a href="#" title="JS效果4">JS效果4</a></li>
+                                <li><a href="#" title="JS效果5">JS效果5</a></li>
+                                <li><a href="#" title="JS效果6">JS效果6</a></li>
+                            </ul>
+                        </div>
+                        <div class="list">
+                            <ul>
+                                <li><a href="javascript:;" title="JS效果1">JS效果1</a></li>
+                                <li><a href="javascript:;" title="JS效果2">JS效果2</a></li>
+                                <li><a href="javascript:;" title="JS效果3">JS效果3</a></li>
+                                <li><a href="javascript:;" title="JS效果4">JS效果4</a></li>
+                                <li><a href="javascript:;" title="JS效果5">JS效果5</a></li>
+                                <li><a href="javascript:;" title="JS效果6">JS效果6</a></li>
+                            </ul>
+                        </div>
+                        <div class="list">
+                            <ul>
+                                <li><a href="javascript:;" title="JS效果1">JS效果1</a></li>
+                                <li><a href="javascript:;" title="JS效果2">JS效果2</a></li>
+                                <li><a href="javascript:;" title="JS效果3">JS效果3</a></li>
+                                <li><a href="javascript:;" title="JS效果4">JS效果4</a></li>
+                                <li><a href="javascript:;" title="JS效果5">JS效果5</a></li>
+                                <li><a href="javascript:;" title="JS效果6">JS效果6</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <ol class="number">
+                        <li class="one">1</li>
+                        <li class="two">2</li>
+                        <li class="three">3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="music">
+                <dl>
+                    <dt class="art">
+                        <img src="img/artwork.png" alt="专辑">
+                    </dt>
+                    <dd class="icon-song">
+                        优美音乐
+                    </dd>
+                    <dd class="icon-artist">歌手:</dd>
+                    <dd class="icon-album">所属专辑:未知</dd>
+                    <dd class="icon-like">
+                        <span></span>
+                        <a href="/">超喜欢</a>
+                    </dd>
+                    <dd class="music1" style="width: 290px;height: 45px; border:0;margin:0;padding:0;overflow: hidden;">
+                        <audio  controls="" autoplay>
+                            <source src="music/1.mp3">
+                        </audio>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+    <div class="footer-wrap">
+        <p>
+            <span>Design by:张海龙</span>
+            <span>
+                备案号:
+                <strong>京ICP备14011682号-2</strong>
+            </span>
+        </p>
+    </div>
 </body>
 </html>

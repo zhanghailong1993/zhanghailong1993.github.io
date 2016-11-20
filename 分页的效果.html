@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no">
+    <title>分页效果</title>
+    <style>
+        *{margin:0;padding:0;
+            list-style: none;
+        }
+       body{
+           text-align:center;
+       }
+       input{
+           margin-top:40px;
+           width:50px;
+       }
+        ul{
+            width:510px;
+            height:510px;
+            margin:30px auto;
+        }
+        ul li{
+            width:150px;
+            height:150px;
+            margin:10px;
+            float: left;
+
+        }
+        ul li img{
+            width:150px;
+            height:150px;
+        }
+    </style>
+    <script src="js/move.js"></script>
+    <script>
+        window.onload=function(){
+            var oBtn=document.getElementById('btn');
+            var oUl=document.getElementsByTagName('ul')[0];
+            var aLi=oUl.children;
+            var arr=[];
+            var iNow=0;
+            var timer=null;
+            var bFlag=false;
+            for(var i=0;i<aLi.length;i++){
+                arr[i]={
+                    left:aLi[i].offsetLeft,
+                    top:aLi[i].offsetTop
+                }
+            }
+            for(var i=0;i<aLi.length;i++){
+                aLi[i].style.position='absolute';
+                aLi[i].style.left=arr[i].left+'px';
+                aLi[i].style.top=arr[i].top+'px';
+                aLi[i].style.margin=0;
+            }
+            oBtn.onclick=function(){
+                if(bFlag){
+                    return;
+                }
+                bFlag=true;
+                timer=setInterval(function(){
+                    (function(index){
+                        move(aLi[iNow],{'left':'0','top':'0','width':'0',height:'0','opacity':'0'},{'complete':function(){
+                            if(index==aLi.length-1){
+                               back();
+                            }
+                        }});
+                    })(iNow);
+                    iNow++;
+                    if(iNow==aLi.length){
+                        clearInterval(timer);
+                    }
+                },100);
+            };
+            function back(){
+                var timer=setInterval(function(){
+                    iNow--;
+                    move(aLi[iNow],{'left':arr[iNow].left,'top':arr[iNow].top,'width':150,'height':150,'opacity':1});
+                    if(iNow==0){
+                        clearInterval(timer);
+                        bFlag=false;
+                    }
+                },100);
+            }
+        };
+    </script>
+</head>
+<body>
+    <input type="button" value="分页" id="btn"/>
+    <ul>
+        <li><img src="img/f1.jpg" alt=""></li>
+        <li><img src="img/f2.jpeg" alt=""></li>
+        <li><img src="img/f1.jpg" alt=""></li>
+        <li><img src="img/f2.jpeg" alt=""></li>
+        <li><img src="img/f1.jpg" alt=""></li>
+        <li><img src="img/f2.jpeg" alt=""></li>
+        <li><img src="img/f1.jpg" alt=""></li>
+        <li><img src="img/f2.jpeg" alt=""></li>
+        <li><img src="img/f1.jpg" alt=""></li>
+    </ul>
+</body>
+</html>

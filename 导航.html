@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>导航</title>
+	<style>
+		*{padding:0;margin:0;list-style: none;}
+		a{
+			text-decoration: none;
+		}
+		.header{
+			width: 1000px;
+			margin:0 auto;
+			height: 40px;
+			background: #ccc;
+		}
+		.header ul{
+			overflow: hidden;
+		}
+		.header ul li{
+			width: calc(20% - 20px);
+			height: 40px;
+			float: left;
+			margin:0 10px;
+		}
+		.header a{
+			display: block;
+			
+			line-height: 40px;
+			font-size: 20px;
+			text-align: center;
+		}
+		.content{
+			width: 1000px;
+			height: 150px;
+			position: relative;
+			margin: 0 auto;
+		}
+		.content .content1{
+			width: 250px;
+			height: 150px;
+			position: absolute;
+			left:0;
+			top:0;
+			background: red;
+			
+		}
+		.content1 ul{
+			text-align: center;
+			font-size: 22px;
+			line-height: 45px;
+		}
+		.content .content2{
+			width: 101px;
+			height: 200px;
+			position: absolute;
+			left:250px;
+			top:0;
+			background: blue;
+
+			
+		}
+		.content2 ul{
+			text-align: left;
+			font-size: 22px;
+			line-height: 45px;
+		}
+		.content .content3{
+			width: 300px;
+			height: 200px;
+			position: absolute;
+			left:350px;
+			top:0;
+			background: green;
+			
+		}
+		.content3 ul{
+			text-align: center;
+			font-size: 22px;
+			line-height: 45px;
+		}
+		.content .content4{
+			width: 300px;
+			height: 200px;
+			position: absolute;
+			left:550px;
+			top:0;
+			background: pink;
+			
+		}
+		.content4 ul{
+			text-align: center;
+			font-size: 22px;
+			line-height: 45px;
+		}
+		.content .content5{
+			width: 300px;
+			height: 200px;
+			position: absolute;
+			left:755px;
+			top:0;
+			background: yellow;
+			
+		}
+		.content5 ul{
+			text-align: center;
+			font-size: 22px;
+			line-height: 45px;
+		}
+		.content div{
+			display: none;
+		}
+	</style>
+	<script>
+	window.onload=function(){
+		var header=document.querySelector('.header');
+		var aLi=document.querySelectorAll('.header ul li');
+		var oC=document.querySelector('.content');
+		var aDiv=oC.getElementsByTagName('div');
+
+		for(var i=0;i<aLi.length;i++){
+			(function(index){
+				aLi[i].onmouseover=function(){
+					for(var i=0;i<aLi.length;i++){
+						aDiv[i].style.display='none';
+						aLi[i].style.background='';
+					}
+					this.style.background='red';
+					aDiv[index].style.display='block';
+				};
+				header.onmouseout=function(){
+					for(var i=0;i<aLi.length;i++){
+						aDiv[i].style.display='none';
+						aLi[i].style.background='';
+					}
+				};
+			})(i);
+		}
+	};
+	</script>
+</head>
+<body>
+	<div class="header">
+		<ul>
+			<li><a href="#">关于我们</a></li>
+			<li><a href="#">关于公司</a></li>
+			<li><a href="#">产品设计</a></li>
+			<li><a href="#">产品理念</a></li>
+			<li><a href="#">售后服务</a></li>
+		</ul>
+	</div>
+	<div class="content">
+		<div class="content1">
+			<ul>
+				<li><a href="#">我们介绍</a></li>
+				<li><a href="#">我们简介</a></li>
+				<li><a href="#">我们理念</a></li>
+			</ul>
+		</div>
+		<div class="content2">
+			<ul>
+				<li><a href="#">公司更改</a></li>
+				<li><a href="#">公司要求</a></li>
+				<li><a href="#">公司模式</a></li>
+				<li><a href="#">公司简介</a></li>
+			</ul>
+		</div>
+		<div class="content3">
+			<ul>
+				<li><a href="#">公司更改</a></li>
+				<li><a href="#">公司要求</a></li>
+				<li><a href="#">公司模式</a></li>
+				<li><a href="#">公司简介</a></li>
+			</ul>
+		</div>
+		<div class="content4">
+			<ul>
+				<li><a href="#">公司产品</a></li>
+				<li><a href="#">产品服务</a></li>
+				<li><a href="#">产品模式</a></li>
+				<li><a href="#">产品特色</a></li>
+			</ul>
+		</div>
+		<div class="content5">
+			<ul>
+				<li><a href="#">服务态度</a></li>
+				<li><a href="#">服务宗旨</a></li>
+				<li><a href="#">服务特色</a></li>
+				<li><a href="#">服务简介</a></li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

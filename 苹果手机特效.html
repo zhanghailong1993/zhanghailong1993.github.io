@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no">
+    <title>苹果手机特效</title>
+    <style>
+        *{margin:0;padding:0;
+            list-style: none;
+        }
+        #apple{
+            width:100%;
+            position: absolute;
+            left:0;
+            bottom:0;
+            text-align: center;
+        }
+        img{
+            width:64px;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var aImg=document.getElementsByTagName('img');
+            var aP=document.getElementById('apple');
+            document.onmousemove=function(ev){
+                var oEvent=ev||event;
+                var x=oEvent.clientX;
+                var y=oEvent.clientY;
+                for(var i=0;i<aImg.length;i++){
+                    var a=aImg[i].offsetLeft+aImg[i].offsetWidth/2-x;
+                    var b=aImg[i].offsetTop+aP.offsetTop+aImg[i].offsetHeight/2-y;
+                    var c=Math.sqrt(a*a+b*b);
+                    var scale=1-c/500;
+                    if(scale<0.5){
+                        scale=0.5;
+                    }
+                    aImg[i].style.width=128*scale+'px';
+                }
+            };
+        };
+    </script>
+</head>
+<body>
+    <div id="apple">
+        <img src="img/1.png" alt="">
+        <img src="img/2.png" alt="">
+        <img src="img/3.png" alt="">
+        <img src="img/4.png" alt="">
+        <img src="img/5.png" alt="">
+    </div>
+</body>
+</html>

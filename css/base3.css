@@ -1,0 +1,269 @@
+        .header-wrap{
+            width:1000px;
+            margin:0 auto;
+            background-color:#ffc;
+            border-radius:5px;
+        }
+        .header-wrap h1{
+            width: 200px;
+            font-size: 24px;
+            text-align: center;
+            margin-top:54px;
+        }
+        .header-wrap .header-text-box{
+            width:410px;
+            margin:20px 0 0 5px;
+            line-height:20px;
+            padding:20px 0 0 15px;
+        }
+        .header-wrap .logo-pic{
+            padding:20px 0 5px;
+        }
+        .header-wrap .header-text-box ul.text-box li {
+            font-size: 16px;
+            color: #646060;
+            padding-top: 10px;
+            font-weight: 500;
+        }
+        .header-wrap .header-text-box ul.text-box li:nth-child(1) {
+    animation:animations 3s ease-out 1s backwards
+}
+.header-wrap .header-text-box ul.text-box li:nth-child(2) {
+    animation:animations 3s ease-out 4s backwards
+}
+.header-wrap .header-text-box ul.text-box li:nth-child(3) {
+    text-align: right;
+    animation:animations2 5s ease-in-out 7s backwards
+}
+@keyframes animations {
+    0% {
+        transform:translate(0);
+        opacity:0
+    }
+    50% {
+        transform:translate(30px);
+        opacity:.5
+    }
+    to {
+        transform:translate(60px);
+        opacity:1
+    }
+}
+@keyframes animations2 {
+    0% {
+        opacity:0
+    }
+    40% {
+        opacity:.8
+    }
+    45% {
+        opacity:.3
+    }
+    50% {
+        opacity:.8
+    }
+    55% {
+        opacity:.3
+    }
+    60% {
+        opacity:.8
+    }
+    to {
+        opacity:1
+    }
+}
+        .nav-wrap{
+            width:1001px;
+            margin:0 auto;
+            border-radius:5px;
+            height:50px;
+            background: #6673cc;
+            margin-top:10px;
+            box-shadow:0 0 5px red;
+        }
+        .nav-wrap ul li{
+            width:calc(20% - 3px);
+            float: left;
+            text-align: center;
+            margin-right:3px;
+            line-height:50px;
+        }
+        .nav-wrap ul li a{
+            color: #fff;
+            display: block;
+            height:50px;
+            font-size:16px;
+            font-weight:500;
+            line-height:50px;
+        }
+        .nav-wrap ul #active,.nav-wrap ul a:hover{
+            background:green;
+            border-radius:5px;
+        }
+        #mainbody {
+            width: 100%;
+            margin:0 auto;
+            overflow: hidden;
+        }
+        .blogs {
+            margin: 0px auto 20px;
+            width: 1000px;
+        }
+        .mbx {
+            border-bottom: #247979 3px solid;
+            font-size: 14px;
+            font-weight: normal;
+            line-height: 48px;
+            height: 40px;
+            position: relative;
+        }
+        .mbx a{
+            color: #000;}
+        .mbx p {
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 48px;
+            line-height: 48px;
+        }
+        .wyfl {
+            font-size: 16px;
+            line-height: 40px;
+            border-radius: 6px;
+            color: #000;
+            overflow: hidden;
+            height: 40px;
+            border-bottom: 1px dotted #333;
+            width: 960px;
+            margin: 0 auto;
+        }
+        .wyfl b {
+            color: #448644;
+        }
+        .wyfl span {
+            font-weight: bold;
+            color: #F00;
+            margin-left: 5px;
+        }
+        .wyfl a {
+            color:#000;
+            margin-left: 5px;
+        }
+        .content{
+            width:1000px;
+            margin:0 auto;
+        }
+        .bloglist2 {
+            width: 690px;
+            float: left;
+            margin-top: 5px;
+            overflow: hidden;
+        }
+        .bloglist2 dd {
+            margin-left: 15px;
+            margin-top: 10px;
+            width: 202px;
+            height: 162px;
+            float: left;
+        }
+        .arrow_boximg {
+            background: #CCCCCC;
+            border-radius: 6px;
+            width: 200px;
+            height: 160px;
+            color: #000;
+            overflow: hidden;
+            box-shadow:0px 0px 5px green;
+        }
+        aside {
+            margin: 20px 0px;
+            width: 310px;
+            float: right;
+        }
+        aside div {
+            border: 1px solid #CCCCCC;
+            padding: 15px;
+            border-radius: 6px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        .searchform input {
+            border: 1px solid #CCCCCC;
+            width: 220px;
+            color: rgb(185, 185, 185);
+            line-height: 30px;
+            height: 30px;
+        }
+        .search-submit {
+            background: #E1AAAA url(img/icons.png) no-repeat 10px -318px;
+            text-indent: -9999px;
+            width: 40px;
+            height: 30px;
+        }
+        .sunnav li a {
+            color: #fff;
+            opacity: 0.8;
+        }
+        .arrow_boximg img {
+            margin: 20px auto 0;
+            display: block;
+            width: 150px;
+            height: 105px;
+        }
+        .sunnav li {
+            line-height: 36px;
+            width: 100%;
+            text-align: center;
+        }
+        .sunnav li:first-child{
+            background: green;
+        }
+        .sunnav li:nth-child(2) {
+            background: #E7A82B;
+        }
+        .sunnav li:nth-child(3) {
+            background: red;
+        }
+        .sunnav li:last-child {
+            background: #085A5A;
+        }
+        aside div {
+            border: 1px solid #CCCCCC;
+            padding: 15px;
+            border-radius: 6px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        aside h2 {
+            color: #448644;
+            font-size: 16px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .clicks li {
+            line-height:24px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        .clicks li span a {
+            padding: 0px 5px;
+            color: #000;
+        }
+        .footer-wrap{
+            width:1000px;
+            margin:0 auto;
+            height:40px;
+            line-height:40px;
+            text-align: center;
+            border-top:1px solid #ccc;
+            border-radius:5px;
+            color:#504d50;
+            background: #6cc;
+        }
+        .footer-wrap span {
+            padding-right: 5px;
+        }
+        .footer-wrap strong {
+            font-weight:normal;
+        }
